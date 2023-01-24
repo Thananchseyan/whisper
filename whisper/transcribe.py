@@ -166,11 +166,12 @@ def transcribe(
             }
         )
         if verbose:
-            line = f"[{format_timestamp(start)} --> {format_timestamp(end)}] {text}\n"
+            print(f"[{format_timestamp(start)} --> {format_timestamp(end)}] {text}")
+            #line = f"[{format_timestamp(start)} --> {format_timestamp(end)}] {text}\n"
             # compared to just `print(line)`, this replaces any character not representable using
             # the system default encoding with an '?', avoiding UnicodeEncodeError.
-            sys.stdout.buffer.write(line.encode(sys.getdefaultencoding(), errors="replace"))
-            sys.stdout.flush()
+            #sys.stdout.buffer.write(line.encode(sys.getdefaultencoding(), errors="replace"))
+            #sys.stdout.flush()
 
     # show the progress bar when verbose is False (otherwise the transcribed text will be printed)
     num_frames = mel.shape[-1]
